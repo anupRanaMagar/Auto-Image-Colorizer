@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { FaEye, FaFileDownload } from "react-icons/fa";
 const Historylog = () => {

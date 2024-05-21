@@ -102,8 +102,7 @@
 // export default Draganddrop;
 
 import { useState, useRef } from "react";
-import "../App.css";
-import React from "react";
+import "../App.css"
 
 // {% csrf_token %}
 const Draganddrop = () => {
@@ -111,7 +110,7 @@ const Draganddrop = () => {
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef();
 
-  function selectFiles(event) {
+  function selectFiles() {
     fileInputRef.current.click();
   }
 
@@ -186,7 +185,7 @@ const Draganddrop = () => {
           <button className=" " onClick={selectFiles}>
             Upload Image
           </button>
-          {buttonClicked && <p>The button has been clicked!</p>}
+          {/* {buttonClicked && <p>The button has been clicked!</p>} */}
           <input
             type="file"
             name="file"

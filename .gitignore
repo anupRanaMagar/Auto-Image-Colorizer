@@ -1,3 +1,4 @@
 .venv/
+.env
 
 # *generator_model_f.h5

@@ -10,6 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+
+# Add these at the top of your settings.py
+from os import getenv
+from dotenv import load_dotenv
+
 from pathlib import Path 
 import os
 from datetime import timedelta
@@ -129,15 +134,28 @@ WSGI_APPLICATION = 'imagecolorizer.wsgi.application'
 #     }
 # }
 
+
+
+# Replace the DATABASES section of your settings.py with this
+# Add these at the top of your settings.py
+from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Replace the DATABASES section of your settings.py with this
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'colordb',
-        'USER': 'root',
-        'PASSWORD': '6650509869a',
-        'HOST':'127.0.0.1',
-        'PORT':'3306',
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': getenv('PGDATABASE'),
+    'USER': getenv('PGUSER'),
+    'PASSWORD': getenv('PGPASSWORD'),
+    'HOST': getenv('PGHOST'),
+    'PORT': getenv('PGPORT', 5432),
+    'OPTIONS': {
+      'sslmode': 'require',
+    },
+  }
 }
 
 # Password validation
@@ -192,11 +210,10 @@ STATICFILES_DIRS = [
 
 # MEDIA_ROOT = 'media'
 
-#TATIC_ROOT = os.path.join (BASE_DIR , "staticfiles")
+STATIC_ROOT = os.path.join (BASE_DIR , "staticfiles_build", "static")
 
-# #STATICFILES_DIRS = (
-#     BASE_DIR.joinpath('image-main','dist')
-# )
+# STATICFILES_DIRS = os.path.join(BASE_DIR,"static")
+ 
 
 
 REST_FRAMEWORK = {
@@ -235,3 +252,4 @@ AUTH_USER_MODEL = 'api.User'
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # MODEL_PATH = os.path.join(BASE_DIR, 'anup.h5')
+

@@ -2,8 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 import Login from "./pages/Login";
-import { useState, useEffect } from "react";
-
 import Signup from "./pages/Signup";
 import Nav from "./components/Navb";
 import Historylog from "./pages/Historylog";

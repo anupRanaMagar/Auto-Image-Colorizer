@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-import { Navigate } from "react-router-dom";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [redirects, setRedirects] = useState(false);
+
   const [showPass, setShowPass] = useState(false);
 
   const submit = async (e) => {
